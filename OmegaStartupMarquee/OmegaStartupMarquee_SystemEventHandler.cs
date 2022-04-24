@@ -14,6 +14,15 @@ namespace OmegaStartupMarquee
                 Process[] Process = System.Diagnostics.Process.GetProcesses();
                 for (int i = 0; i < Process.Length; i++)
                 {
+                    if (Process[i].ProcessName.StartsWith("mplayer"))
+                    {
+                        Process[i].Kill();
+                    }
+                }
+
+                Process = System.Diagnostics.Process.GetProcesses();
+                for (int i = 0; i < Process.Length; i++)
+                {
                     if (Process[i].ProcessName.StartsWith("BigBoxWithStartupMarquee"))
                     {
                         Process[i].Kill();
